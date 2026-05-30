@@ -74,4 +74,4 @@ Visit `http://localhost:8080/h2-console` (JDBC URL: `jdbc:h2:mem:smartparkdb`, u
 
 Postman
 
-Import `smartpark.postman_collection.json` and set `baseUrl` to `http://localhost:8080`.
+Import `smartpark.postman_collection.json`
