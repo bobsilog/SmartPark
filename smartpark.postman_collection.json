@@ -1,0 +1,164 @@
+{
+  "info": {
+    "name": "SmartPark API",
+    "description": "Postman collection for SmartPark parking lot and vehicle management API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "1.0.0"
+  },
+  "item": [
+    {
+      "name": "Register Parking Lot",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"lotId\": \"LOT-010\",\n  \"location\": \"BGC\",\n  \"capacity\": 100\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/parking-lots",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "parking-lots"]
+        }
+      }
+    },
+    {
+      "name": "Register Vehicle",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"licensePlate\": \"MOT-420\",\n  \"type\": \"MOTORCYCLE\",\n  \"ownerName\": \"Bob A\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/vehicles",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "vehicles"]
+        }
+      }
+    },
+    {
+      "name": "Check In Vehicle",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"licensePlate\": \"MOT-420\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/parking-lots/LOT-010/checkin",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "parking-lots", "LOT-010", "checkin"]
+        }
+      }
+    },
+    {
+      "name": "Check Out Vehicle",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"licensePlate\": \"MOT-420\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/parking-lots/LOT-010/checkout",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "parking-lots", "LOT-010", "checkout"]
+        }
+      }
+    },
+    {
+      "name": "Get Parking Lot Occupancy",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/parking-lots/LOT-010/occupancy",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "parking-lots", "LOT-010", "occupancy"]
+        }
+      }
+    },
+    {
+      "name": "Get Vehicles in Lot",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/parking-lots/LOT-010/vehicles",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "parking-lots", "LOT-010", "vehicles"]
+        }
+      }
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": []
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}

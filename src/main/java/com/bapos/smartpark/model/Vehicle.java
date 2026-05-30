@@ -30,6 +30,9 @@ public class Vehicle {
     @Pattern(regexp = "^[A-Za-z ]+$")
     private String ownerName;
 
+    @Column(name = "current_lot_id", length = 50)
+    private String currentLotId;
+
     protected Vehicle() {
     }
 
@@ -61,5 +64,13 @@ public class Vehicle {
 
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
+    }
+
+    public String getCurrentLotId() {
+        return currentLotId;
+    }
+
+    public void setCurrentLotId(String currentLotId) {
+        this.currentLotId = currentLotId;
     }
 }
